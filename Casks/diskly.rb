@@ -1,8 +1,8 @@
-# 模板：publish-cask.sh 用 sed 替换 1.3 / 9b210f12454e616e5b2a9c2c0f15d5d18a0515ccec4c02ba96fd6654e3c09ee6 / mahui/diskly-dist 后写入 tap 仓。
+# 模板：publish-cask.sh 用 sed 替换 1.3.1 / caec92ebde4f35440a97a5f392be07affbb4fc984c25b05858a0f1fa3187a921 / mahui/diskly-dist 后写入 tap 仓。
 # 只引用公开发布仓与官网，绝不出现私有源码仓地址。
 cask "diskly" do
-  version "1.3"
-  sha256 "9b210f12454e616e5b2a9c2c0f15d5d18a0515ccec4c02ba96fd6654e3c09ee6"
+  version "1.3.1"
+  sha256 "caec92ebde4f35440a97a5f392be07affbb4fc984c25b05858a0f1fa3187a921"
 
   url "https://github.com/mahui/diskly-dist/releases/download/v#{version}/Diskly-#{version}.dmg"
   name "Diskly"
