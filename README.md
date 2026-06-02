@@ -1,25 +1,17 @@
-# Pier Homebrew Tap
+# homebrew-tap
 
-[Pier](https://pier.app.mahui.me/) 的 Homebrew tap —— 驻留 macOS 菜单栏的轻量端口 / 进程 / 系统资源查看工具。
+mahui 的 Homebrew tap。
 
-## 安装
+## Diskly — 可视化 macOS 磁盘分析与清理工具
 
-```bash
-brew install --cask mahui/tap/pier
+```sh
+brew install --cask mahui/tap/diskly
 ```
 
-或分两步：
+升级：
 
-```bash
-brew tap mahui/tap
-brew install --cask pier
+```sh
+brew upgrade --cask diskly
 ```
 
-## 升级 / 卸载
-
-```bash
-brew upgrade --cask pier      # Pier 也内置自动更新
-brew uninstall --cask pier    # 加 --zap 一并清除偏好与缓存
-```
-
-> 这个仓库的 `Casks/pier.rb` 由 Pier 主仓库的 `scripts/publish-cask.sh` 在每次发布时自动更新，请勿手动改动。
+官网与下载：<https://diskly.app.mahui.me>
