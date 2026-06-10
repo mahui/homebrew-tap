@@ -1,6 +1,6 @@
 cask "pier" do
-  version "1.3.1"
-  sha256 "3177cd162312067ad4654a77aa0f1d21de8198a65760801f8b69b613bb6d3030"
+  version "1.3.2"
+  sha256 "fee6e67276439f4b65bf94389cd73a9a2739cb0fb073b9a342bec77eaed27171"
 
   url "https://github.com/mahui/pier-dist/releases/download/v#{version}/Pier-#{version}.dmg",
       verified: "github.com/mahui/pier-dist/"
