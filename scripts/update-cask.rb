@@ -13,7 +13,7 @@ class CaskUpdater
   end
 
   def update(token:, version:, sha256:, repository:)
-    validate!(token:, version:, sha256:, repository:)
+    validate!(token: token, version: version, sha256: sha256, repository: repository)
 
     path = File.join(@root, "Casks", "#{token}.rb")
     raise ArgumentError, "Cask 不存在：#{path}" unless File.file?(path)
@@ -72,7 +72,7 @@ if $PROGRAM_NAME == __FILE__
 
   token, version, sha256, repository = ARGV
   begin
-    path = CaskUpdater.new.update(token:, version:, sha256:, repository:)
+    path = CaskUpdater.new.update(token: token, version: version, sha256: sha256, repository: repository)
     puts "✓ 已更新 #{path}"
   rescue ArgumentError => e
     warn "✗ #{e.message}"

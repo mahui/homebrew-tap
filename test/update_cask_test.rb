@@ -2,6 +2,7 @@
 
 require "fileutils"
 require "minitest/autorun"
+require "open3"
 require "tmpdir"
 require_relative "../scripts/update-cask"
 
@@ -73,5 +74,15 @@ class UpdateCaskTest < Minitest::Test
         repository: "mahui/sample-dist",
       )
     end
+  end
+
+  def test_script_parses_with_system_ruby
+    system_ruby = "/usr/bin/ruby"
+    skip "system Ruby is unavailable" unless File.executable?(system_ruby)
+
+    script = File.expand_path("../scripts/update-cask.rb", __dir__)
+    stdout, stderr, status = Open3.capture3(system_ruby, "-c", script)
+
+    assert status.success?, stdout + stderr
   end
 end
