@@ -16,17 +16,17 @@ cask "pier" do
     end
   end
 
-  auto_updates true              # Pier 内置 Sparkle 自更新，brew 不应判定为版本不符
-  depends_on macos: ">= :sonoma" # LSMinimumSystemVersion 14.0
+  auto_updates true # Pier 内置 Sparkle 自更新，brew 不应判定为版本不符
+  depends_on macos: :sonoma # LSMinimumSystemVersion 14.0
 
   app "Pier.app"
 
   # 许可证存于钥匙串（service: me.mahui.app.pier），刻意不在 zap 中清除：
   # 卸载后重装仍保留授权状态。
   zap trash: [
-    "~/Library/Preferences/me.mahui.app.pier.plist",
     "~/Library/Caches/me.mahui.app.pier",
     "~/Library/HTTPStorages/me.mahui.app.pier",
+    "~/Library/Preferences/me.mahui.app.pier.plist",
     "~/Library/Saved Application State/me.mahui.app.pier.savedState",
   ]
 end
