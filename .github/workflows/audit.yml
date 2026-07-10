@@ -1,0 +1,48 @@
+name: Homebrew audit
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: macos-26
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache Homebrew Bundler RubyGems
+        uses: actions/cache@v5
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ runner.os }}-rubygems-
+
+      - name: Run updater tests
+        run: ruby test/update_cask_test.rb
+
+      - name: Run Cask contract tests
+        run: ruby test/cask_contract_test.rb
+
+      - name: Prepare test-bot
+        run: brew test-bot --only-cleanup-before
+
+      - name: Set up test-bot
+        run: brew test-bot --only-setup
+
+      - name: Check Tap syntax
+        run: brew test-bot --only-tap-syntax
+
+      - name: Check Cask style
+        run: brew style Casks/pier.rb Casks/diskly.rb Casks/mtinker.rb
+
+      - name: Run strict Cask audit
+        run: brew audit --tap="$GITHUB_REPOSITORY" --cask --strict
