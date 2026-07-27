@@ -1,6 +1,6 @@
 cask "diskly" do
-  version "1.8"
-  sha256 "4292258964d2e43856e3d0aabbb6ec9d8465aaf2815ad3030475e3a0cbf66c02"
+  version "1.8.1"
+  sha256 "bf11dad6ee1a354e21cc6432baaaf209e69e46d7a56b17b747d2c311ad5872bf"
 
   url "https://github.com/mahui/diskly-dist/releases/download/v#{version}/Diskly-#{version}.dmg",
       verified: "github.com/mahui/diskly-dist/"
