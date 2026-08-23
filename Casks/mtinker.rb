@@ -1,6 +1,6 @@
 cask "mtinker" do
-  version "1.5.1"
-  sha256 "8f539c95b59dc97431baa7b802e5bb3795b9356bb28323bf379631d79625c1cd"
+  version "1.6.0"
+  sha256 "66b1301323b447f836d1c52b44935725a96b95b1616fec06a4e5e25b84c8465c"
 
   url "https://github.com/mahui/mtinker-dist/releases/download/v#{version}/mTinker.dmg",
       verified: "github.com/mahui/mtinker-dist/"
