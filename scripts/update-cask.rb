@@ -38,7 +38,7 @@ class CaskUpdater
       GITHUB_REPOSITORY_PATTERN,
       "github.com/#{repository}",
       "GitHub 发布仓地址",
-      expected: 2,
+      expected: 1,
     )
 
     File.write(path, content)

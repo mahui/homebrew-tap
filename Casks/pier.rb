@@ -2,8 +2,7 @@ cask "pier" do
   version "2.0.3"
   sha256 "ceb13712a08d5894d3e347803ef611c24912fc0317a9883547950008849589f2"
 
-  url "https://github.com/mahui/pier-dist/releases/download/v#{version}/Pier-#{version}.dmg",
-      verified: "github.com/mahui/pier-dist/"
+  url "https://github.com/mahui/pier-dist/releases/download/v#{version}/Pier-#{version}.dmg"
   name "Pier"
   desc "Menu bar app to inspect ports, processes and system resources"
   homepage "https://pier.app.mahui.me/"

@@ -2,8 +2,7 @@ cask "diskly" do
   version "2.2.0"
   sha256 "208e1bf7f45e94fece631adf28f1fbbfe4a1c914cb74629b9810428b54d4d332"
 
-  url "https://github.com/mahui/diskly-dist/releases/download/v#{version}/Diskly-#{version}.dmg",
-      verified: "github.com/mahui/diskly-dist/"
+  url "https://github.com/mahui/diskly-dist/releases/download/v#{version}/Diskly-#{version}.dmg"
   name "Diskly"
   desc "Visual disk analyzer and cleanup tool"
   homepage "https://diskly.app.mahui.me/"

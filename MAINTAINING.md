@@ -6,7 +6,7 @@
 
 - `version`
 - `sha256`
-- URL 与 `verified:` 中的公开发布仓地址
+- URL 中的公开发布仓地址
 
 上游仓库不得保存第二份完整 Cask，不得复制或覆盖本仓库的 README。
 
@@ -36,7 +36,7 @@ git diff --check
 
 ## 新增 Cask
 
-1. 直接在本仓库新增 `Casks/<token>.rb`，补齐 `verified:`、最低系统、`livecheck`、`auto_updates` 和 `zap`。
+1. 直接在本仓库新增 `Casks/<token>.rb`，补齐最低系统、`livecheck`、`auto_updates` 和 `zap`；`url` 不要写已废弃的 `verified:`，沿用 Homebrew 默认 URL 校验。
 2. 为 `test/cask_contract_test.rb` 增加元数据契约。
 3. 在应用发布脚本中调用 `scripts/update-cask.rb`，不要生成完整 heredoc 或复制模板。
 4. 先让 Tap 的测试、style 和 audit 全部通过，再启用应用发布脚本。

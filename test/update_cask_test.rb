@@ -18,8 +18,7 @@ class UpdateCaskTest < Minitest::Test
         version "1.0.0"
         sha256 "#{"0" * 64}"
 
-        url "https://github.com/example/sample-dist/releases/download/v\#{version}/Sample.dmg",
-            verified: "github.com/example/sample-dist/"
+        url "https://github.com/example/sample-dist/releases/download/v\#{version}/Sample.dmg"
         name "Sample"
         desc "Metadata must remain unchanged"
       end
@@ -41,7 +40,7 @@ class UpdateCaskTest < Minitest::Test
     content = File.read(path)
     assert_includes content, 'version "2.1.3"'
     assert_includes content, %(sha256 "#{SHA256}")
-    assert_equal 2, content.scan("github.com/mahui/sample-dist").length
+    assert_equal 1, content.scan("github.com/mahui/sample-dist").length
     assert_includes content, 'desc "Metadata must remain unchanged"'
   end
 
@@ -62,8 +61,8 @@ class UpdateCaskTest < Minitest::Test
     end
   end
 
-  def test_requires_exactly_two_repository_references
-    content = File.read(@path).sub(/^\s+verified:.*\n/, "")
+  def test_requires_exactly_one_repository_reference
+    content = File.read(@path).sub(/^end$/, %(  # github.com/example/sample-dist\nend))
     File.write(@path, content)
 
     assert_raises(ArgumentError) do

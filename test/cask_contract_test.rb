@@ -32,7 +32,8 @@ class CaskContractTest < Minitest::Test
       assert_includes content, %(desc "#{expected[:desc]}")
       assert_includes content, %(homepage "#{expected[:homepage]}")
       assert_includes content, %(depends_on macos: #{expected[:macos]})
-      assert_includes content, %(verified: "github.com/#{expected[:repository]}/")
+      assert_includes content, %(url "https://github.com/#{expected[:repository]}/releases/download/)
+      refute_match(/verified:/, content)
       refute_match(/depends_on\s+macos:\s*["']/, content)
 
       zap_entries = content.scan(/^\s+"~\/Library\/[^"]+",$/).map(&:strip)
